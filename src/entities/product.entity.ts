@@ -17,6 +17,9 @@ export class Product extends BaseEntity {
   @Column('varchar', { name: 'product_title' })
   product_title: string;
 
+  @Column('varchar', { array: true })
+  product_images: string[];
+
   @Column('int', { name: 'product_price' })
   product_price: number;
 

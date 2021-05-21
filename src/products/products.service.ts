@@ -26,6 +26,7 @@ export class ProductsService {
     private productRepository: ProductRepository,
   ) {}
 
+  //상품등록
   async createProduct(
     productCreateDto: ProductCreateDto,
     store: Store,
@@ -33,10 +34,12 @@ export class ProductsService {
     return await this.productRepository.createProduct(productCreateDto, store);
   }
 
+  //상품 불러오기
   async getProducts(filterDto: GetProductFilterDto): Promise<Product[]> {
     return await this.productRepository.getProducts(filterDto);
   }
 
+  //상품 ID불러오기
   async getProductById(id: number) {
     const found = await this.productRepository.findOne(id);
 
@@ -46,6 +49,7 @@ export class ProductsService {
     return found;
   }
 
+  //상품 중지여부
   async updateProductStatus(id: number, status: ProductStatus) {
     const product = await this.getProductById(id);
 
@@ -54,7 +58,7 @@ export class ProductsService {
     return product;
   }
 
-  //이미지 업로드
+  //상품이미지 업로드
   async fileupload(@Req() req, @Res() res) {
     try {
       this.upload(req, res, function (error) {

@@ -41,9 +41,14 @@ export class ProductRepository extends Repository<Product> {
     }
     return product;
   }
-  async getProducts(filterDto: GetProductFilterDto): Promise<Product[]> {
+  async getProducts(
+    filterDto: GetProductFilterDto,
+    store: Store,
+  ): Promise<Product[]> {
     const { useYn } = filterDto;
     const query = this.createQueryBuilder('product');
+
+    // query.where('product.storeId = :storeId', { storeId: store.id });
 
     if (useYn) {
       query.where('product_use_yn = :useYn', { useYn });

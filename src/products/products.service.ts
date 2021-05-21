@@ -35,8 +35,11 @@ export class ProductsService {
   }
 
   //상품 불러오기
-  async getProducts(filterDto: GetProductFilterDto): Promise<Product[]> {
-    return await this.productRepository.getProducts(filterDto);
+  async getProducts(
+    filterDto: GetProductFilterDto,
+    store: Store,
+  ): Promise<Product[]> {
+    return await this.productRepository.getProducts(filterDto, store);
   }
 
   //상품 ID불러오기

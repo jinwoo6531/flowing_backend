@@ -40,8 +40,9 @@ export class ProductsController {
   @Get()
   getProducts(
     @Query(ValidationPipe) filterDto: GetProductFilterDto,
+    @GetStore() store: Store,
   ): Promise<Product[]> {
-    return this.productService.getProducts(filterDto);
+    return this.productService.getProducts(filterDto, store);
   }
 
   @Get('/:product_id')

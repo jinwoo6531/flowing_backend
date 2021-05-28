@@ -17,7 +17,7 @@ export class StoresController {
   @Post('/signin')
   signIn(
     @Body(ValidationPipe) storeCredentialsDto: StoreCredentialsDto,
-  ): Promise<{ accessToken: string }> {
+  ): Promise<{ accessToken: string; store_name: string }> {
     return this.storeService.signIn(storeCredentialsDto);
   }
 }

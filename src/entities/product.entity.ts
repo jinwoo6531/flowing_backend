@@ -51,6 +51,6 @@ export class Product extends BaseEntity {
   })
   modified_at: Date;
 
-  @ManyToOne((type) => Store, (store) => store.products, { eager: false })
+  @ManyToOne((_type) => Store, (store) => store.products, { eager: false })
   store: Store;
 }

@@ -20,7 +20,7 @@ export class StoresService {
 
   async signIn(
     storeCredentialsDto: StoreCredentialsDto,
-  ): Promise<{ accessToken: string }> {
+  ): Promise<{ accessToken: string; store_name: string }> {
     const store_name = await this.storeRepository.validateUserPassword(
       storeCredentialsDto,
     );
@@ -31,6 +31,6 @@ export class StoresService {
     const payload: JwtPayload = { store_name };
     const accessToken = await this.jwtService.sign(payload);
 
-    return { accessToken };
+    return { accessToken, store_name };
   }
 }

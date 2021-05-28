@@ -62,7 +62,7 @@ export class Store extends BaseEntity {
   })
   modified_at: Date;
 
-  @OneToMany((type) => Product, (product) => product.store, {
+  @OneToMany((_type) => Product, (product) => product.store, {
     eager: true,
   })
   products: Product[];

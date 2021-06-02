@@ -6,6 +6,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { StoreRepository } from './store.repository';
 import { Store } from 'src/entities/store.entity';
 
+//jwt 학습
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(
